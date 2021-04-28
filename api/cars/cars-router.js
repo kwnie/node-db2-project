@@ -13,7 +13,7 @@ router.get("/api/cars", async (req, res, next) => {
 
 router.get("/api/cars/:id", checkCarId(), async (req, res, next) => {
     try {
-        const car = await db.getById(req.car.id)
+        const car = await db.getById(req.params.id)
         res.status(200).json(car)
     } catch(err) {
         next(err)
